@@ -22,12 +22,20 @@ function WishlistPage() {
           <div className="rounded-3xl border border-border bg-card p-16 text-center shadow-soft">
             <Heart className="mx-auto h-10 w-10 text-muted-foreground" />
             <p className="mt-4 text-lg font-medium">Your wishlist is empty</p>
-            <p className="mt-1 text-sm text-muted-foreground">Tap the heart on any product to save it here.</p>
-            <Link to="/products"><Button variant="accent" className="mt-6">Browse products</Button></Link>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Tap the heart on any product to save it here.
+            </p>
+            <Link to="/products">
+              <Button variant="accent" className="mt-6">
+                Browse products
+              </Button>
+            </Link>
           </div>
         ) : (
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {items.map((p) => <ProductCard key={p.id} product={p} />)}
+            {items.map((p) => (
+              <ProductCard key={p.id} product={p} />
+            ))}
           </div>
         )}
       </section>

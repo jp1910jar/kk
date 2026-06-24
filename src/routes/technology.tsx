@@ -14,7 +14,11 @@ export const Route = createFileRoute("/technology")({
   head: () => ({
     meta: [
       { title: "Technology — Digie" },
-      { name: "description", content: "Proprietary Digie technology: QuantumColour HDR, AI energy management, acoustic tuning and connected experiences." },
+      {
+        name: "description",
+        content:
+          "Proprietary Digie technology: QuantumColour HDR, AI energy management, acoustic tuning and connected experiences.",
+      },
     ],
   }),
   component: TechPage,
@@ -99,9 +103,7 @@ function TechPage() {
                   <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-accent/20 backdrop-blur-sm border border-accent/30">
                     <Icon className="h-5 w-5 text-accent" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white leading-snug">
-                    {t.title}
-                  </h3>
+                  <h3 className="text-xl font-semibold text-white leading-snug">{t.title}</h3>
                   <p className="mt-2 text-sm text-white/75 leading-relaxed line-clamp-2">
                     {t.description}
                   </p>
@@ -119,7 +121,9 @@ function TechPage() {
             Find a Digie experience store or explore the full range online.
           </p>
           <Link to="/products" className="mt-6 inline-block">
-            <Button variant="accent" size="lg">Explore products</Button>
+            <Button variant="accent" size="lg">
+              Explore products
+            </Button>
           </Link>
         </div>
       </section>

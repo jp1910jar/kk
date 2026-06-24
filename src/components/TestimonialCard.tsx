@@ -31,7 +31,9 @@ export function TestimonialCard({
         </span>
         <div>
           <p className="font-medium leading-tight">{name}</p>
-          <p className="text-xs text-muted-foreground">{city} · {product}</p>
+          <p className="text-xs text-muted-foreground">
+            {city} · {product}
+          </p>
         </div>
       </div>
     </div>

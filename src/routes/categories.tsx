@@ -8,7 +8,11 @@ export const Route = createFileRoute("/categories")({
   head: () => ({
     meta: [
       { title: "Categories — Digie" },
-      { name: "description", content: "Explore Digie product categories: Smart TVs, speakers, coolers, washing machines, kitchen appliances and more." },
+      {
+        name: "description",
+        content:
+          "Explore Digie product categories: Smart TVs, speakers, coolers, washing machines, kitchen appliances and more.",
+      },
     ],
   }),
   component: CategoriesPage,

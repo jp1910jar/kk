@@ -111,9 +111,7 @@ function ContactPage() {
                   {c.value}
                 </p>
 
-                <p className="mt-2 text-sm text-white/75">
-                  {c.description}
-                </p>
+                <p className="mt-2 text-sm text-white/75">{c.description}</p>
               </div>
             </div>
           ))}
@@ -128,57 +126,32 @@ function ContactPage() {
             onSubmit={submit}
             className="rounded-3xl border border-border bg-card p-8 shadow-soft"
           >
-            <h2 className="font-display text-2xl font-semibold">
-              Send a message
-            </h2>
+            <h2 className="font-display text-2xl font-semibold">Send a message</h2>
 
             <div className="mt-6 space-y-4">
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <Label className="mb-1.5 block">Name</Label>
-                  <Input
-                    required
-                    placeholder="Your name"
-                    className="rounded-xl"
-                  />
+                  <Input required placeholder="Your name" className="rounded-xl" />
                 </div>
 
                 <div>
                   <Label className="mb-1.5 block">Email</Label>
-                  <Input
-                    required
-                    type="email"
-                    placeholder="you@email.com"
-                    className="rounded-xl"
-                  />
+                  <Input required type="email" placeholder="you@email.com" className="rounded-xl" />
                 </div>
               </div>
 
               <div>
                 <Label className="mb-1.5 block">Subject</Label>
-                <Input
-                  required
-                  placeholder="How can we help?"
-                  className="rounded-xl"
-                />
+                <Input required placeholder="How can we help?" className="rounded-xl" />
               </div>
 
               <div>
                 <Label className="mb-1.5 block">Message</Label>
-                <Textarea
-                  required
-                  rows={5}
-                  placeholder="Your message"
-                  className="rounded-xl"
-                />
+                <Textarea required rows={5} placeholder="Your message" className="rounded-xl" />
               </div>
 
-              <Button
-                variant="accent"
-                size="lg"
-                className="w-full"
-                disabled={sending}
-              >
+              <Button variant="accent" size="lg" className="w-full" disabled={sending}>
                 {sending ? "Sending..." : "Send message"}
               </Button>
             </div>

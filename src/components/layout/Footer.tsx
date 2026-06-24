@@ -1,13 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Instagram,
-  Twitter,
-  Youtube,
-  Facebook,
-} from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Twitter, Youtube, Facebook } from "lucide-react";
 import logo from "@/assets/digie.png";
 
 const columns = [
@@ -72,15 +64,12 @@ export function Footer() {
                 D
               </span>
 
-              <span className="font-display text-xl font-bold tracking-tight">
-                DIGIE
-              </span>
+              <span className="font-display text-xl font-bold tracking-tight">DIGIE</span>
             </Link>
 
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Premium consumer electronics engineered in India. Twenty-five
-              years of design, precision manufacturing and a promise of
-              brilliance in every home.
+              Premium consumer electronics engineered in India. Twenty-five years of design,
+              precision manufacturing and a promise of brilliance in every home.
             </p>
 
             <div className="mt-6 space-y-3 text-sm text-muted-foreground">
@@ -126,9 +115,7 @@ export function Footer() {
 
         {/* Bottom Footer */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground sm:flex-row">
-          <p>
-            © {new Date().getFullYear()} Digie Electronics. All rights reserved.
-          </p>
+          <p>© {new Date().getFullYear()} Digie Electronics. All rights reserved.</p>
 
           <div className="flex gap-3">
             {socials.map(({ Icon, href }, i) => (

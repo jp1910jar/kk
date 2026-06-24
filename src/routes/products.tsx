@@ -30,7 +30,10 @@ export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
       { title: "All Products — Digie" },
-      { name: "description", content: "Browse premium TVs, speakers, coolers and appliances from Digie." },
+      {
+        name: "description",
+        content: "Browse premium TVs, speakers, coolers and appliances from Digie.",
+      },
     ],
   }),
   component: ProductsPage,
@@ -73,11 +76,16 @@ function ProductsPage() {
     });
     list = [...list].sort((a, b) => {
       switch (sort) {
-        case "price-asc": return a.price - b.price;
-        case "price-desc": return b.price - a.price;
-        case "rating": return b.rating - a.rating;
-        case "discount": return discountPct(b.mrp, b.price) - discountPct(a.mrp, a.price);
-        default: return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
+        case "price-asc":
+          return a.price - b.price;
+        case "price-desc":
+          return b.price - a.price;
+        case "rating":
+          return b.rating - a.rating;
+        case "discount":
+          return discountPct(b.mrp, b.price) - discountPct(a.mrp, a.price);
+        default:
+          return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
       }
     });
     return list;
@@ -103,7 +111,10 @@ function ProductsPage() {
           <label key={c.id} className="flex cursor-pointer items-center gap-3 py-1.5 text-sm">
             <Checkbox
               checked={selectedCats.includes(c.id)}
-              onCheckedChange={() => { toggle(selectedCats, c.id, setSelectedCats); setPage(1); }}
+              onCheckedChange={() => {
+                toggle(selectedCats, c.id, setSelectedCats);
+                setPage(1);
+              }}
             />
             <span className="flex-1">{c.name}</span>
             <span className="text-xs text-muted-foreground">{c.count}</span>
@@ -116,7 +127,10 @@ function ProductsPage() {
           <label key={b} className="flex cursor-pointer items-center gap-3 py-1.5 text-sm">
             <Checkbox
               checked={selectedBrands.includes(b)}
-              onCheckedChange={() => { toggle(selectedBrands, b, setSelectedBrands); setPage(1); }}
+              onCheckedChange={() => {
+                toggle(selectedBrands, b, setSelectedBrands);
+                setPage(1);
+              }}
             />
             {b}
           </label>
@@ -129,19 +143,30 @@ function ProductsPage() {
           min={1000}
           max={maxPrice}
           step={1000}
-          onValueChange={(v) => { setPrice(v[0]); setPage(1); }}
+          onValueChange={(v) => {
+            setPrice(v[0]);
+            setPage(1);
+          }}
         />
         <p className="mt-3 text-sm text-muted-foreground">Up to {formatINR(price)}</p>
       </FilterGroup>
 
       <FilterGroup title="Availability">
         <label className="flex cursor-pointer items-center gap-3 py-1.5 text-sm">
-          <Checkbox checked={inStockOnly} onCheckedChange={(v) => { setInStockOnly(!!v); setPage(1); }} />
+          <Checkbox
+            checked={inStockOnly}
+            onCheckedChange={(v) => {
+              setInStockOnly(!!v);
+              setPage(1);
+            }}
+          />
           In stock only
         </label>
       </FilterGroup>
 
-      <Button variant="outline" className="w-full" onClick={clearAll}>Clear filters</Button>
+      <Button variant="outline" className="w-full" onClick={clearAll}>
+        Clear filters
+      </Button>
     </div>
   );
 
@@ -167,29 +192,48 @@ function ProductsPage() {
                 {filtered.length} products
               </p>
               <div className="flex items-center gap-2">
-                <Button variant="outline" size="sm" className="lg:hidden" onClick={() => setFiltersOpen((v) => !v)}>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="lg:hidden"
+                  onClick={() => setFiltersOpen((v) => !v)}
+                >
                   <SlidersHorizontal className="h-4 w-4" /> Filters
                 </Button>
-                <Select value={sort} onValueChange={(v) => { setSort(v); setPage(1); }}>
+                <Select
+                  value={sort}
+                  onValueChange={(v) => {
+                    setSort(v);
+                    setPage(1);
+                  }}
+                >
                   <SelectTrigger className="h-9 w-[180px] rounded-full">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
                     {sortOptions.map((o) => (
-                      <SelectItem key={o.value} value={o.value}>{o.label}</SelectItem>
+                      <SelectItem key={o.value} value={o.value}>
+                        {o.label}
+                      </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
                 <div className="hidden rounded-full border border-border p-1 sm:flex">
                   <button
                     onClick={() => setView("grid")}
-                    className={cn("grid h-7 w-7 place-items-center rounded-full", view === "grid" && "bg-secondary")}
+                    className={cn(
+                      "grid h-7 w-7 place-items-center rounded-full",
+                      view === "grid" && "bg-secondary",
+                    )}
                   >
                     <LayoutGrid className="h-4 w-4" />
                   </button>
                   <button
                     onClick={() => setView("list")}
-                    className={cn("grid h-7 w-7 place-items-center rounded-full", view === "list" && "bg-secondary")}
+                    className={cn(
+                      "grid h-7 w-7 place-items-center rounded-full",
+                      view === "list" && "bg-secondary",
+                    )}
                   >
                     <List className="h-4 w-4" />
                   </button>
@@ -201,7 +245,9 @@ function ProductsPage() {
               <div className="mb-6 rounded-3xl border border-border bg-card p-6 lg:hidden">
                 <div className="mb-4 flex items-center justify-between">
                   <span className="font-semibold">Filters</span>
-                  <button onClick={() => setFiltersOpen(false)}><X className="h-5 w-5" /></button>
+                  <button onClick={() => setFiltersOpen(false)}>
+                    <X className="h-5 w-5" />
+                  </button>
                 </div>
                 {Filters}
               </div>
@@ -210,7 +256,9 @@ function ProductsPage() {
             {paged.length === 0 ? (
               <div className="rounded-3xl border border-border bg-card p-16 text-center">
                 <p className="text-lg font-medium">No products match your filters.</p>
-                <Button variant="accent" className="mt-4" onClick={clearAll}>Reset filters</Button>
+                <Button variant="accent" className="mt-4" onClick={clearAll}>
+                  Reset filters
+                </Button>
               </div>
             ) : view === "grid" ? (
               <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
@@ -241,7 +289,9 @@ function ProductsPage() {
                     onClick={() => setPage(i + 1)}
                     className={cn(
                       "h-10 w-10 rounded-full text-sm font-medium transition-colors",
-                      current === i + 1 ? "bg-foreground text-background" : "border border-border hover:bg-secondary",
+                      current === i + 1
+                        ? "bg-foreground text-background"
+                        : "border border-border hover:bg-secondary",
                     )}
                   >
                     {i + 1}
@@ -274,8 +324,14 @@ function ListRow({ id }: { id: string }) {
         <img src={p.image} alt={p.name} className="h-44 w-full rounded-2xl object-cover sm:w-44" />
       </Link>
       <div className="flex flex-1 flex-col">
-        <span className="text-xs uppercase tracking-wide text-muted-foreground">{p.brand} · {p.category}</span>
-        <Link to="/product/$id" params={{ id: p.id }} className="mt-1 font-display text-lg font-semibold hover:text-accent">
+        <span className="text-xs uppercase tracking-wide text-muted-foreground">
+          {p.brand} · {p.category}
+        </span>
+        <Link
+          to="/product/$id"
+          params={{ id: p.id }}
+          className="mt-1 font-display text-lg font-semibold hover:text-accent"
+        >
           {p.name}
         </Link>
         <p className="mt-1 flex items-center gap-1 text-sm text-muted-foreground">

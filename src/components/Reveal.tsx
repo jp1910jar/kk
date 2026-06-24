@@ -29,13 +29,7 @@ export function Reveal({
   );
 }
 
-export function Stagger({
-  children,
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
+export function Stagger({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <motion.div
       className={className}
@@ -49,15 +43,13 @@ export function Stagger({
   );
 }
 
-export function StaggerItem({
-  children,
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
+export function StaggerItem({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <motion.div className={className} variants={variants} transition={{ duration: 0.55, ease: [0.21, 0.47, 0.32, 0.98] }}>
+    <motion.div
+      className={className}
+      variants={variants}
+      transition={{ duration: 0.55, ease: [0.21, 0.47, 0.32, 0.98] }}
+    >
       {children}
     </motion.div>
   );

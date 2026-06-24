@@ -24,7 +24,9 @@ export function CategoryCard({ category, large = false }: { category: Category; 
 
       <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 text-background">
         <div>
-          <p className="text-xs uppercase tracking-[0.18em] text-background/70">{category.count} products</p>
+          <p className="text-xs uppercase tracking-[0.18em] text-background/70">
+            {category.count} products
+          </p>
           <h3 className="mt-1 font-display text-xl font-semibold sm:text-2xl">{category.name}</h3>
           <p className="mt-1 max-w-xs text-sm text-background/80">{category.tagline}</p>
         </div>

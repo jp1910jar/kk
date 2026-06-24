@@ -1,6 +1,15 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { ShoppingBag, Phone, User, MessageSquare, CheckCircle2, AlertCircle, Trash2, ChevronRight } from "lucide-react";
+import {
+  ShoppingBag,
+  Phone,
+  User,
+  MessageSquare,
+  CheckCircle2,
+  AlertCircle,
+  Trash2,
+  ChevronRight,
+} from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
 import { useStore } from "@/lib/store";
@@ -33,7 +42,7 @@ function CheckoutPage() {
       const product = products.find((p) => p.id === item.id);
       return product ? { ...product, qty: item.qty } : null;
     })
-    .filter(Boolean) as (typeof products[number] & { qty: number })[];
+    .filter(Boolean) as ((typeof products)[number] & { qty: number })[];
 
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.qty, 0);
 
@@ -56,19 +65,16 @@ function CheckoutPage() {
   if (submitted) {
     return (
       <>
-        <PageHero
-          eyebrow="Order placed"
-          title="Thank you!"
-          crumbs={[{ label: "Checkout" }]}
-        />
+        <PageHero eyebrow="Order placed" title="Thank you!" crumbs={[{ label: "Checkout" }]} />
         <section className="container-px mx-auto max-w-xl py-20 text-center">
           <div className="flex justify-center mb-6">
             <CheckCircle2 className="h-20 w-20 text-accent" />
           </div>
           <h2 className="text-2xl font-semibold">We've received your request</h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Thanks, <span className="text-foreground font-medium">{name}</span>! Our team will reach out to you on{" "}
-            <span className="text-foreground font-medium">{phone}</span> shortly to confirm your order and discuss delivery.
+            Thanks, <span className="text-foreground font-medium">{name}</span>! Our team will reach
+            out to you on <span className="text-foreground font-medium">{phone}</span> shortly to
+            confirm your order and discuss delivery.
           </p>
           <Button variant="accent" className="mt-10" onClick={() => navigate({ to: "/products" })}>
             Continue shopping
@@ -81,11 +87,7 @@ function CheckoutPage() {
   if (cartItems.length === 0) {
     return (
       <>
-        <PageHero
-          eyebrow="Checkout"
-          title="Your cart is empty"
-          crumbs={[{ label: "Checkout" }]}
-        />
+        <PageHero eyebrow="Checkout" title="Your cart is empty" crumbs={[{ label: "Checkout" }]} />
         <section className="container-px mx-auto max-w-xl py-20 text-center">
           <ShoppingBag className="mx-auto h-16 w-16 text-muted-foreground/40 mb-6" />
           <p className="text-muted-foreground">Add some products before checking out.</p>
@@ -99,23 +101,19 @@ function CheckoutPage() {
 
   return (
     <>
-      <PageHero
-        eyebrow="Checkout"
-        title="Place your order"
-        crumbs={[{ label: "Checkout" }]}
-      />
+      <PageHero eyebrow="Checkout" title="Place your order" crumbs={[{ label: "Checkout" }]} />
 
       <section className="container-px mx-auto max-w-7xl py-12">
         <div className="grid gap-10 lg:grid-cols-[1fr_400px]">
-
           {/* Left — Payment notice + Contact form */}
           <div className="space-y-8">
-
             {/* Payment notice */}
             <div className="flex gap-4 rounded-2xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-900/40 dark:bg-amber-950/30">
               <AlertCircle className="h-5 w-5 shrink-0 text-amber-600 dark:text-amber-400 mt-0.5" />
               <p className="text-sm text-amber-800 dark:text-amber-300 leading-relaxed">
-                Sorry, it seems that there are no available payment methods. Please contact us on this number <b>8447744522</b> if you require assistance or wish to make alternate arrangements.
+                Sorry, it seems that there are no available payment methods. Please contact us on
+                this number <b>8447744522</b> if you require assistance or wish to make alternate
+                arrangements.
               </p>
             </div>
 
@@ -123,7 +121,8 @@ function CheckoutPage() {
             <div className="rounded-2xl border border-border bg-card p-6">
               <h2 className="font-semibold text-lg mb-1">How to place your order</h2>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Fill in your name and phone number below and we'll call you to confirm your order, discuss delivery, and arrange payment.
+                Fill in your name and phone number below and we'll call you to confirm your order,
+                discuss delivery, and arrange payment.
               </p>
 
               <div className="mt-6 space-y-5">
@@ -136,10 +135,13 @@ function CheckoutPage() {
                     type="text"
                     placeholder="Your full name"
                     value={name}
-                    onChange={(e) => { setName(e.target.value); setErrors((err) => ({ ...err, name: undefined })); }}
+                    onChange={(e) => {
+                      setName(e.target.value);
+                      setErrors((err) => ({ ...err, name: undefined }));
+                    }}
                     className={cn(
                       "w-full rounded-xl border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-accent",
-                      errors.name ? "border-red-400" : "border-border"
+                      errors.name ? "border-red-400" : "border-border",
                     )}
                   />
                   {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
@@ -154,10 +156,13 @@ function CheckoutPage() {
                     type="tel"
                     placeholder="10-digit mobile number"
                     value={phone}
-                    onChange={(e) => { setPhone(e.target.value); setErrors((err) => ({ ...err, phone: undefined })); }}
+                    onChange={(e) => {
+                      setPhone(e.target.value);
+                      setErrors((err) => ({ ...err, phone: undefined }));
+                    }}
                     className={cn(
                       "w-full rounded-xl border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-accent",
-                      errors.phone ? "border-red-400" : "border-border"
+                      errors.phone ? "border-red-400" : "border-border",
                     )}
                   />
                   {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone}</p>}
@@ -166,7 +171,8 @@ function CheckoutPage() {
                 {/* Message */}
                 <div>
                   <label className="mb-1.5 flex items-center gap-2 text-sm font-medium">
-                    <MessageSquare className="h-4 w-4 text-accent" /> Message <span className="text-muted-foreground font-normal">(optional)</span>
+                    <MessageSquare className="h-4 w-4 text-accent" /> Message{" "}
+                    <span className="text-muted-foreground font-normal">(optional)</span>
                   </label>
                   <textarea
                     rows={3}
@@ -196,7 +202,9 @@ function CheckoutPage() {
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium leading-snug line-clamp-2">{item.name}</p>
                       <p className="mt-0.5 text-xs text-muted-foreground">Qty: {item.qty}</p>
-                      <p className="mt-1 text-sm font-semibold">{formatINR(item.price * item.qty)}</p>
+                      <p className="mt-1 text-sm font-semibold">
+                        {formatINR(item.price * item.qty)}
+                      </p>
                     </div>
                     <button
                       onClick={() => removeFromCart(item.id)}
@@ -224,12 +232,7 @@ function CheckoutPage() {
                 </div>
               </div>
 
-              <Button
-                variant="accent"
-                size="lg"
-                className="mt-6 w-full"
-                onClick={handleSubmit}
-              >
+              <Button variant="accent" size="lg" className="mt-6 w-full" onClick={handleSubmit}>
                 Place order <ChevronRight className="h-4 w-4" />
               </Button>
 
@@ -238,7 +241,6 @@ function CheckoutPage() {
               </p>
             </div>
           </div>
-
         </div>
       </section>
     </>

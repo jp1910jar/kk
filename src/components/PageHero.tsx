@@ -19,11 +19,7 @@ export function PageHero({
     return (
       <section className="relative h-64 md:h-80 overflow-hidden">
         {/* Background image */}
-        <img
-          src={image}
-          alt={title}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        <img src={image} alt={title} className="absolute inset-0 h-full w-full object-cover" />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/55" />
 
@@ -31,12 +27,16 @@ export function PageHero({
         <div className="relative z-10 container-px mx-auto max-w-7xl h-full flex flex-col justify-end pb-8 pt-32">
           <Reveal>
             <nav className="mb-3 flex items-center gap-1.5 text-sm text-white/70">
-              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+              <Link to="/" className="hover:text-white transition-colors">
+                Home
+              </Link>
               {crumbs.map((c) => (
                 <span key={c.label} className="flex items-center gap-1.5">
                   <ChevronRight className="h-3.5 w-3.5" />
                   {c.to ? (
-                    <Link to={c.to} className="hover:text-white transition-colors">{c.label}</Link>
+                    <Link to={c.to} className="hover:text-white transition-colors">
+                      {c.label}
+                    </Link>
                   ) : (
                     <span className="text-white">{c.label}</span>
                   )}
@@ -67,12 +67,16 @@ export function PageHero({
       <div className="container-px mx-auto max-w-7xl">
         <Reveal>
           <nav className="mb-5 flex items-center gap-1.5 text-sm text-muted-foreground">
-            <Link to="/" className="hover:text-accent">Home</Link>
+            <Link to="/" className="hover:text-accent">
+              Home
+            </Link>
             {crumbs.map((c) => (
               <span key={c.label} className="flex items-center gap-1.5">
                 <ChevronRight className="h-3.5 w-3.5" />
                 {c.to ? (
-                  <Link to={c.to} className="hover:text-accent">{c.label}</Link>
+                  <Link to={c.to} className="hover:text-accent">
+                    {c.label}
+                  </Link>
                 ) : (
                   <span className="text-foreground">{c.label}</span>
                 )}

@@ -44,11 +44,7 @@ export function Navbar() {
       >
         <nav className="container-px mx-auto flex h-18 max-w-7xl items-center justify-between py-3">
           <Link to="/" className="flex items-center gap-2">
-            <img
-              src={logo}
-              alt="Digie Innovation"
-              className="h-9 w-auto object-contain"
-            />
+            <img src={logo} alt="Digie Innovation" className="h-9 w-auto object-contain" />
           </Link>
 
           <div className="hidden items-center gap-1 lg:flex">

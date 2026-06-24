@@ -50,17 +50,61 @@ export const Route = createFileRoute("/")({
 const heroSlides = [digieBanner1, digieBanner2, digieBanner3];
 
 const whyUs = [
-  { icon: ShieldCheck, title: "2-Year Promise", description: "Every product backed by comprehensive warranty and transferable coverage.", image: promiseImg },
-  { icon: Truck, title: "Free Installation", description: "Doorstep delivery with complimentary expert installation across India.", image: freeInstallImg },
-  { icon: Headphones, title: "Always-On Support", description: "400+ service centres and a support team that answers in minutes.", image: alwaysImg },
-  { icon: Cpu, title: "Smart by Design", description: "Connected appliances with OTA updates and intuitive app control.", image: smartImg },
+  {
+    icon: ShieldCheck,
+    title: "2-Year Promise",
+    description: "Every product backed by comprehensive warranty and transferable coverage.",
+    image: promiseImg,
+  },
+  {
+    icon: Truck,
+    title: "Free Installation",
+    description: "Doorstep delivery with complimentary expert installation across India.",
+    image: freeInstallImg,
+  },
+  {
+    icon: Headphones,
+    title: "Always-On Support",
+    description: "400+ service centres and a support team that answers in minutes.",
+    image: alwaysImg,
+  },
+  {
+    icon: Cpu,
+    title: "Smart by Design",
+    description: "Connected appliances with OTA updates and intuitive app control.",
+    image: smartImg,
+  },
 ];
 
 const process = [
-  { icon: Layers, step: "01", title: "Design Studio", text: "Industrial designers sculpt each product for form, balance and feel.", image: designStudioImg },
-  { icon: Factory, step: "02", title: "Precision Build", text: "Robotic assembly lines hold tolerances within fractions of a millimetre.", image: precisionBuildImg },
-  { icon: BadgeCheck, step: "03", title: "120-Point QA", text: "Every unit runs a rigorous quality gauntlet before it ships.", image: qualityImg },
-  { icon: Wrench, step: "04", title: "Lifetime Care", text: "Serviceable, repairable and supported long after the sale.", image: lifetimeImg },
+  {
+    icon: Layers,
+    step: "01",
+    title: "Design Studio",
+    text: "Industrial designers sculpt each product for form, balance and feel.",
+    image: designStudioImg,
+  },
+  {
+    icon: Factory,
+    step: "02",
+    title: "Precision Build",
+    text: "Robotic assembly lines hold tolerances within fractions of a millimetre.",
+    image: precisionBuildImg,
+  },
+  {
+    icon: BadgeCheck,
+    step: "03",
+    title: "120-Point QA",
+    text: "Every unit runs a rigorous quality gauntlet before it ships.",
+    image: qualityImg,
+  },
+  {
+    icon: Wrench,
+    step: "04",
+    title: "Lifetime Care",
+    text: "Serviceable, repairable and supported long after the sale.",
+    image: lifetimeImg,
+  },
 ];
 
 function Home() {
@@ -82,7 +126,6 @@ function Home() {
       {/* HERO */}
       <section className="relative overflow-hidden bg-hero pt-28 pb-16 md:pt-36 md:pb-24">
         <div className="container-px mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2">
-
           {/* Left — text content */}
           <div>
             <motion.h1
@@ -101,8 +144,8 @@ function Home() {
               transition={{ duration: 0.7, delay: 0.15 }}
               className="mt-6 max-w-md text-lg leading-relaxed text-muted-foreground"
             >
-              Premium TVs, audio and home appliances — engineered in India with twenty-five years
-              of obsessive craft. Designed to be seen, built to last.
+              Premium TVs, audio and home appliances — engineered in India with twenty-five years of
+              obsessive craft. Designed to be seen, built to last.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 24 }}
@@ -116,7 +159,9 @@ function Home() {
                 </Button>
               </Link>
               <Link to="/technology">
-                <Button variant="outline" size="xl">Explore technology</Button>
+                <Button variant="outline" size="xl">
+                  Explore technology
+                </Button>
               </Link>
             </motion.div>
             <div className="mt-12 grid max-w-md grid-cols-3 gap-6">
@@ -178,7 +223,9 @@ function Home() {
 
               {/* Prev arrow */}
               <button
-                onClick={() => setActiveSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)}
+                onClick={() =>
+                  setActiveSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)
+                }
                 className="absolute left-3 top-1/2 -translate-y-1/2 z-10 grid h-9 w-9 place-items-center rounded-full bg-black/30 text-white backdrop-blur-sm transition hover:bg-black/50"
                 aria-label="Previous slide"
               >
@@ -195,7 +242,6 @@ function Home() {
               </button>
             </div>
           </motion.div>
-
         </div>
       </section>
 
@@ -208,7 +254,9 @@ function Home() {
             description="From cinema-grade displays to whisper-quiet appliances, explore the full Digie collection."
           />
           <Link to="/categories">
-            <Button variant="link">View all categories <ArrowRight className="h-4 w-4" /></Button>
+            <Button variant="link">
+              View all categories <ArrowRight className="h-4 w-4" />
+            </Button>
           </Link>
         </div>
         <div className="mt-10 grid auto-rows-[1fr] gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -226,8 +274,7 @@ function Home() {
           title="Featured products"
           description="Our designers' picks — the products that define what Digie stands for."
         />
-       <div className="mt-10 grid grid-cols-4 gap-5">
-
+        <div className="mt-10 grid grid-cols-4 gap-5">
           {featured.map((p, i) => (
             <Reveal key={p.id} delay={i * 0.06}>
               <ProductCard product={p} />
@@ -247,14 +294,20 @@ function Home() {
         <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {whyUs.map((f) => (
             <StaggerItem key={f.title}>
-              <div className="group relative overflow-hidden rounded-3xl shadow-soft" style={{ minHeight: "280px" }}>
+              <div
+                className="group relative overflow-hidden rounded-3xl shadow-soft"
+                style={{ minHeight: "280px" }}
+              >
                 <img
                   src={f.image}
                   alt={f.title}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
-                <div className="relative flex h-full flex-col justify-end p-6" style={{ minHeight: "280px" }}>
+                <div
+                  className="relative flex h-full flex-col justify-end p-6"
+                  style={{ minHeight: "280px" }}
+                >
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-accent/20 backdrop-blur-sm">
                     <f.icon className="h-5 w-5 text-accent" />
                   </div>
@@ -271,7 +324,9 @@ function Home() {
       <section className="bg-ink py-24 text-background">
         <div className="container-px mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
           <Reveal>
-            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Engineering</span>
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+              Engineering
+            </span>
             <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
               Technology you can feel, not just read about.
             </h2>
@@ -292,13 +347,18 @@ function Home() {
               ))}
             </div>
             <Link to="/technology" className="mt-8 inline-block">
-              <Button variant="accent" size="lg">Discover the tech <ArrowRight className="h-4 w-4" /></Button>
+              <Button variant="accent" size="lg">
+                Discover the tech <ArrowRight className="h-4 w-4" />
+              </Button>
             </Link>
           </Reveal>
           <Reveal delay={0.1}>
             <div className="grid grid-cols-2 gap-4">
               {stats.map((s) => (
-                <div key={s.label} className="rounded-3xl border border-background/10 bg-background/5 p-7">
+                <div
+                  key={s.label}
+                  className="rounded-3xl border border-background/10 bg-background/5 p-7"
+                >
                   <p className="font-display text-4xl font-bold text-accent">
                     <Counter to={s.value} suffix={s.suffix} />
                   </p>
@@ -315,10 +375,12 @@ function Home() {
         <div className="flex flex-wrap items-end justify-between gap-4">
           <SectionHeading eyebrow="Loved by India" title="Best sellers" />
           <Link to="/products">
-            <Button variant="link">Shop all <ArrowRight className="h-4 w-4" /></Button>
+            <Button variant="link">
+              Shop all <ArrowRight className="h-4 w-4" />
+            </Button>
           </Link>
         </div>
-       <div className="mt-10 grid grid-cols-4 gap-5">
+        <div className="mt-10 grid grid-cols-4 gap-5">
           {bestSellers.map((p, i) => (
             <Reveal key={p.id} delay={i * 0.06}>
               <ProductCard product={p} />
@@ -338,14 +400,20 @@ function Home() {
         <Stagger className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {process.map((p) => (
             <StaggerItem key={p.step}>
-              <div className="group relative overflow-hidden rounded-3xl shadow-soft" style={{ minHeight: "320px" }}>
+              <div
+                className="group relative overflow-hidden rounded-3xl shadow-soft"
+                style={{ minHeight: "320px" }}
+              >
                 <img
                   src={p.image}
                   alt={p.title}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-                <div className="relative flex h-full flex-col justify-between p-6" style={{ minHeight: "320px" }}>
+                <div
+                  className="relative flex h-full flex-col justify-between p-6"
+                  style={{ minHeight: "320px" }}
+                >
                   <div className="flex items-start justify-between">
                     <span className="font-display text-5xl font-bold text-white/20">{p.step}</span>
                     <div className="flex h-9 w-9 items-center justify-center rounded-full bg-accent/20 backdrop-blur-sm">

@@ -158,40 +158,54 @@ function AboutPage() {
       <section className="container-px mx-auto max-w-7xl py-6">
         <Stagger className="grid gap-6 md:grid-cols-2">
           <StaggerItem>
-            <div className="group relative overflow-hidden rounded-3xl shadow-soft" style={{ minHeight: "320px" }}>
+            <div
+              className="group relative overflow-hidden rounded-3xl shadow-soft"
+              style={{ minHeight: "320px" }}
+            >
               <img
                 src={missionImg}
                 alt="Our Mission"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10 transition-opacity duration-300 group-hover:from-black/90" />
-              <div className="relative flex h-full flex-col justify-end p-8" style={{ minHeight: "320px" }}>
+              <div
+                className="relative flex h-full flex-col justify-end p-8"
+                style={{ minHeight: "320px" }}
+              >
                 <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-accent/20 backdrop-blur-sm border border-accent/30 transition-colors duration-300 group-hover:bg-accent/35">
                   <Target className="h-5 w-5 text-accent" />
                 </div>
                 <h3 className="font-display text-2xl font-semibold text-white">Our Mission</h3>
                 <p className="mt-2 text-sm leading-relaxed text-white/80">
-                  Bringing innovative technology within everyone's reach — creating reliable solutions that simplify and enrich daily living across every Indian home.
+                  Bringing innovative technology within everyone's reach — creating reliable
+                  solutions that simplify and enrich daily living across every Indian home.
                 </p>
               </div>
             </div>
           </StaggerItem>
 
           <StaggerItem>
-            <div className="group relative overflow-hidden rounded-3xl shadow-soft" style={{ minHeight: "320px" }}>
+            <div
+              className="group relative overflow-hidden rounded-3xl shadow-soft"
+              style={{ minHeight: "320px" }}
+            >
               <img
                 src={visionImg}
                 alt="Our Vision"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10 transition-opacity duration-300 group-hover:from-black/90" />
-              <div className="relative flex h-full flex-col justify-end p-8" style={{ minHeight: "320px" }}>
+              <div
+                className="relative flex h-full flex-col justify-end p-8"
+                style={{ minHeight: "320px" }}
+              >
                 <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-accent/20 backdrop-blur-sm border border-accent/30 transition-colors duration-300 group-hover:bg-accent/35">
                   <Eye className="h-5 w-5 text-accent" />
                 </div>
                 <h3 className="font-display text-2xl font-semibold text-white">Our Vision</h3>
                 <p className="mt-2 text-sm leading-relaxed text-white/80">
-                  To establish Digie as a globally recognized technology brand — delivering innovative solutions that enrich lives worldwide through quality and purpose.
+                  To establish Digie as a globally recognized technology brand — delivering
+                  innovative solutions that enrich lives worldwide through quality and purpose.
                 </p>
               </div>
             </div>
@@ -206,7 +220,6 @@ function AboutPage() {
         <Reveal>
           <div className="mt-12 overflow-hidden rounded-3xl border border-border bg-card shadow-soft">
             <div className="grid items-center lg:grid-cols-[520px_1fr]">
-
               <div className="founder-img-wrap relative min-h-[620px] bg-gradient-to-br from-accent/10 to-accent/5">
                 <img
                   src={mukulImg}
@@ -220,9 +233,9 @@ function AboutPage() {
                 <h3 className="font-display text-4xl font-bold">Mukul Sharma</h3>
                 <p className="mt-2 text-lg font-medium text-accent">Founder & Chairman</p>
                 <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-                  With a vision to make world-class electronics accessible to every Indian household,
-                  Mukul Sharma founded Digie and transformed it into a trusted electronics brand
-                  serving customers across India.
+                  With a vision to make world-class electronics accessible to every Indian
+                  household, Mukul Sharma founded Digie and transformed it into a trusted
+                  electronics brand serving customers across India.
                 </p>
                 <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                   His dedication to innovation, manufacturing excellence and customer satisfaction
@@ -245,7 +258,6 @@ function AboutPage() {
                   ))}
                 </div>
               </div>
-
             </div>
           </div>
         </Reveal>
@@ -258,11 +270,7 @@ function AboutPage() {
         {/* Journey image — auto height so nothing is cropped */}
         <Reveal>
           <div className="mt-10 overflow-hidden rounded-3xl shadow-soft">
-            <img
-              src={journeyImg}
-              alt="Digie journey"
-              className="h-auto w-full object-contain"
-            />
+            <img src={journeyImg} alt="Digie journey" className="h-auto w-full object-contain" />
           </div>
         </Reveal>
 
@@ -285,7 +293,11 @@ function AboutPage() {
 
       {/* ── QUALITY & MANUFACTURING ── */}
       <section className="container-px mx-auto max-w-7xl py-6 pb-14">
-        <SectionHeading align="center" eyebrow="Quality & manufacturing" title="Made with precision, certified for trust" />
+        <SectionHeading
+          align="center"
+          eyebrow="Quality & manufacturing"
+          title="Made with precision, certified for trust"
+        />
 
         <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {qualityItems.map((item) => (
@@ -306,7 +318,10 @@ function AboutPage() {
                       "linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.40) 55%, rgba(0,0,0,0.10) 100%)",
                   }}
                 />
-                <div className="quality-card-body relative flex h-full flex-col justify-end p-6" style={{ minHeight: "260px" }}>
+                <div
+                  className="quality-card-body relative flex h-full flex-col justify-end p-6"
+                  style={{ minHeight: "260px" }}
+                >
                   <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-accent/20 backdrop-blur-sm border border-accent/30 transition-colors duration-300 group-hover:bg-accent/40">
                     <Award className="h-5 w-5 text-accent" />
                   </div>

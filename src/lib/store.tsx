@@ -84,9 +84,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   const updateQty = useCallback(
     (id: string, qty: number) =>
-      setCart((prev) =>
-        prev.map((i) => (i.id === id ? { ...i, qty: Math.max(1, qty) } : i)),
-      ),
+      setCart((prev) => prev.map((i) => (i.id === id ? { ...i, qty: Math.max(1, qty) } : i))),
     [setCart],
   );
 

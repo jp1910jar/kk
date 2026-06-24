@@ -5,5 +5,4 @@ export const formatINR = (value: number) =>
     maximumFractionDigits: 0,
   }).format(value);
 
-export const discountPct = (mrp: number, price: number) =>
-  Math.round(((mrp - price) / mrp) * 100);
+export const discountPct = (mrp: number, price: number) => Math.round(((mrp - price) / mrp) * 100);
