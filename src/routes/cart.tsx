@@ -55,7 +55,7 @@ function CartPage() {
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="h-24 w-24 shrink-0 rounded-2xl object-cover"
+                    className="h-24 w-24 shrink-0 rounded-2xl border border-white/10 bg-gradient-to-br from-white/90 to-white/70 object-cover"
                   />
                   <div className="flex flex-1 flex-col">
                     <div className="flex items-start justify-between gap-2">
