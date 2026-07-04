@@ -45,6 +45,7 @@ function ProductDetail() {
   const navigate = useNavigate();
   const { addToCart, toggleWishlist, inWishlist } = useStore();
   const [zoom, setZoom] = useState(false);
+  const [active, setActive] = useState(0);
 
   if (!product) {
     return (
@@ -62,7 +63,6 @@ function ProductDetail() {
   const related = getRelated(product);
   const saved = inWishlist(product.id);
   const gallery = [product.image, product.image, product.image];
-  const [active, setActive] = useState(0);
 
   return (
     <>
@@ -107,7 +107,7 @@ function ProductDetail() {
           {/* Gallery */}
           <div>
             <div
-              className="group relative aspect-square overflow-hidden rounded-3xl border border-border bg-secondary/40"
+              className="group relative aspect-square overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/90 to-white/70 shadow-soft"
               onMouseEnter={() => setZoom(true)}
               onMouseLeave={() => setZoom(false)}
             >

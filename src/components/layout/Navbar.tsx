@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Search, Heart, ShoppingBag, User, Menu, X } from "lucide-react";
+import { Search, Heart, ShoppingBag, User, Menu, X, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { SearchDialog } from "@/components/SearchDialog";
 import { useStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/digie.png";
+import logo from "@/assets/digie-light.png";
 
 const nav = [
   { label: "Home", to: "/" },
@@ -36,15 +36,29 @@ export function Navbar() {
 
   return (
     <>
+      {/* Announcement bar */}
+      <div className="relative z-50 overflow-hidden bg-accent-gradient bg-[length:200%_auto] animate-gradient text-center text-xs font-medium text-accent-foreground">
+        <div className="container-px mx-auto flex max-w-7xl items-center justify-center gap-2 py-2">
+          <Sparkles className="h-3.5 w-3.5" />
+          <span>
+            Free installation & 2-year warranty on every Digie appliance · Metro delivery in 24h
+          </span>
+        </div>
+      </div>
+
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-          scrolled ? "glass shadow-soft" : "bg-transparent",
+          "sticky top-0 z-50 transition-all duration-300",
+          scrolled ? "glass-strong shadow-soft" : "bg-transparent",
         )}
       >
         <nav className="container-px mx-auto flex h-18 max-w-7xl items-center justify-between py-3">
-          <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="Digie Innovation" className="h-9 w-auto object-contain" />
+          <Link to="/" className="group flex items-center gap-2">
+            <img
+              src={logo}
+              alt="Digie Innovation"
+              className="h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            />
           </Link>
 
           <div className="hidden items-center gap-1 lg:flex">
@@ -55,7 +69,7 @@ export function Navbar() {
                 activeOptions={{ exact: item.to === "/" }}
                 activeProps={{ className: "text-foreground after:scale-x-100" }}
                 inactiveProps={{ className: "text-muted-foreground" }}
-                className="relative px-3 py-2 text-sm font-medium transition-colors hover:text-foreground after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:scale-x-0 after:bg-accent after:transition-transform after:duration-300"
+                className="relative px-3 py-2 text-sm font-medium transition-colors hover:text-foreground after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:scale-x-0 after:bg-spectrum-gradient after:transition-transform after:duration-300 hover:after:scale-x-100"
               >
                 {item.label}
               </Link>
@@ -66,14 +80,14 @@ export function Navbar() {
             <button
               onClick={() => setSearchOpen(true)}
               aria-label="Search"
-              className="grid h-10 w-10 place-items-center rounded-full transition-colors hover:bg-secondary"
+              className="grid h-10 w-10 place-items-center rounded-full transition-colors hover:bg-white/10 hover:text-accent"
             >
               <Search className="h-5 w-5" />
             </button>
             <Link
               to="/wishlist"
               aria-label="Wishlist"
-              className="relative grid h-10 w-10 place-items-center rounded-full transition-colors hover:bg-secondary"
+              className="relative grid h-10 w-10 place-items-center rounded-full transition-colors hover:bg-white/10 hover:text-accent"
             >
               <Heart className="h-5 w-5" />
               {wishlistCount > 0 && <Badge>{wishlistCount}</Badge>}
@@ -81,7 +95,7 @@ export function Navbar() {
             <Link
               to="/cart"
               aria-label="Cart"
-              className="relative grid h-10 w-10 place-items-center rounded-full transition-colors hover:bg-secondary"
+              className="relative grid h-10 w-10 place-items-center rounded-full transition-colors hover:bg-white/10 hover:text-accent"
             >
               <ShoppingBag className="h-5 w-5" />
               {cartCount > 0 && <Badge>{cartCount}</Badge>}
@@ -94,7 +108,7 @@ export function Navbar() {
             <button
               onClick={() => setMenuOpen((v) => !v)}
               aria-label="Menu"
-              className="grid h-10 w-10 place-items-center rounded-full transition-colors hover:bg-secondary lg:hidden"
+              className="grid h-10 w-10 place-items-center rounded-full transition-colors hover:bg-white/10 lg:hidden"
             >
               {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -107,17 +121,23 @@ export function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="overflow-hidden border-t border-border glass lg:hidden"
+              className="overflow-hidden border-t border-border glass-strong lg:hidden"
             >
               <div className="container-px mx-auto flex max-w-7xl flex-col py-4">
-                {nav.map((item) => (
-                  <Link
+                {nav.map((item, i) => (
+                  <motion.div
                     key={item.to}
-                    to={item.to}
-                    className="rounded-xl px-3 py-3 text-base font-medium transition-colors hover:bg-secondary"
+                    initial={{ opacity: 0, x: -16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.04 * i }}
                   >
-                    {item.label}
-                  </Link>
+                    <Link
+                      to={item.to}
+                      className="block rounded-xl px-3 py-3 text-base font-medium transition-colors hover:bg-white/10 hover:text-accent"
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
                 ))}
                 <Link to="/login" className="mt-2">
                   <Button variant="accent" className="w-full">
@@ -137,7 +157,7 @@ export function Navbar() {
 
 function Badge({ children }: { children: React.ReactNode }) {
   return (
-    <span className="absolute -right-0.5 -top-0.5 grid h-5 min-w-5 place-items-center rounded-full bg-accent px-1 text-[10px] font-bold text-accent-foreground">
+    <span className="absolute -right-0.5 -top-0.5 grid h-5 min-w-5 place-items-center rounded-full bg-accent-gradient px-1 text-[10px] font-bold text-accent-foreground shadow-glow">
       {children}
     </span>
   );

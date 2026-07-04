@@ -14,8 +14,8 @@ export function TestimonialCard({
   product: string;
 }) {
   return (
-    <div className="flex h-full flex-col rounded-3xl border border-border bg-card p-7 shadow-soft">
-      <Quote className="h-8 w-8 text-accent/30" />
+    <div className="group flex h-full flex-col rounded-3xl border border-white/10 bg-card p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-glow">
+      <Quote className="h-8 w-8 text-accent/40" />
       <p className="mt-4 flex-1 text-base leading-relaxed text-foreground">“{text}”</p>
       <div className="mt-6 flex items-center gap-1">
         {Array.from({ length: 5 }).map((_, i) => (

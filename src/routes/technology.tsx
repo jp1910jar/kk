@@ -115,9 +115,13 @@ function TechPage() {
       </section>
 
       <section className="container-px mx-auto max-w-7xl pb-14">
-        <div className="rounded-[2.5rem] bg-ink p-12 text-center text-background">
-          <h2 className="text-3xl font-semibold md:text-4xl">Experience it in person</h2>
-          <p className="mx-auto mt-3 max-w-md text-background/70">
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-ink p-12 text-center text-foreground">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-24 left-1/2 h-64 w-96 -translate-x-1/2 rounded-full bg-primary/25 blur-3xl"
+          />
+          <h2 className="relative text-3xl font-semibold md:text-4xl">Experience it in person</h2>
+          <p className="relative mx-auto mt-3 max-w-md text-muted-foreground">
             Find a Digie experience store or explore the full range online.
           </p>
           <Link to="/products" className="mt-6 inline-block">
