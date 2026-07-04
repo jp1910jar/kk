@@ -11,7 +11,10 @@ import {
   BadgeCheck,
   Layers,
   Wrench,
+  Sparkles,
+  Star,
 } from "lucide-react";
+import { Aurora, GridPattern, FloatingShapes } from "@/components/Decor";
 import digieBanner1 from "@/assets/digie-banner-1.jpg";
 import digieBanner2 from "@/assets/digie-banner-2.jpg";
 import digieBanner3 from "@/assets/digie-banner-3.jpg";
@@ -125,9 +128,20 @@ function Home() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden bg-hero pt-28 pb-16 md:pt-36 md:pb-24">
-        <div className="container-px mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2">
+        <Aurora intensity="medium" />
+        <GridPattern />
+        <FloatingShapes />
+        <div className="container-px relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2">
           {/* Left — text content */}
           <div>
+            <motion.span
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-1.5 text-xs font-medium text-accent backdrop-blur-sm"
+            >
+              <Sparkles className="h-3.5 w-3.5" /> Engineered in India · 25 years of precision
+            </motion.span>
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -167,7 +181,7 @@ function Home() {
             <div className="mt-12 grid max-w-md grid-cols-3 gap-6">
               {stats.slice(0, 3).map((s) => (
                 <div key={s.label}>
-                  <p className="font-display text-3xl font-bold text-foreground">
+                  <p className="font-display text-3xl font-bold text-gradient-accent">
                     <Counter to={s.value} suffix={s.suffix} />
                   </p>
                   <p className="mt-1 text-xs text-muted-foreground">{s.label}</p>
@@ -183,7 +197,8 @@ function Home() {
             transition={{ duration: 0.9, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="relative w-full"
           >
-            <div className="absolute inset-0 -z-10 rounded-[3rem] bg-accent-gradient opacity-20 blur-3xl" />
+            <div className="absolute -inset-4 -z-10 rounded-[3rem] bg-accent-gradient opacity-30 blur-3xl animate-glow" />
+            <div className="pointer-events-none absolute inset-0 -z-[5] rounded-[2.5rem] ring-1 ring-inset ring-white/10" />
 
             <div className="relative w-full overflow-hidden rounded-[2.5rem] shadow-elevated">
               {/* Invisible placeholder — forces container to match image natural height */}
@@ -274,7 +289,7 @@ function Home() {
           title="Featured products"
           description="Our designers' picks — the products that define what Digie stands for."
         />
-        <div className="mt-10 grid grid-cols-4 gap-5">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {featured.map((p, i) => (
             <Reveal key={p.id} delay={i * 0.06}>
               <ProductCard product={p} />
@@ -321,8 +336,13 @@ function Home() {
       </section>
 
       {/* TECHNOLOGY SHOWCASE */}
-      <section className="bg-ink py-24 text-background">
-        <div className="container-px mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+      <section className="relative overflow-hidden bg-ink py-24 text-foreground">
+        <FloatingShapes />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-brand-purple/20 blur-3xl"
+        />
+        <div className="container-px relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <span className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
               Engineering
@@ -330,7 +350,7 @@ function Home() {
             <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
               Technology you can feel, not just read about.
             </h2>
-            <p className="mt-5 max-w-md text-background/70">
+            <p className="mt-5 max-w-md text-muted-foreground">
               From our QuantumColour panels to AI-driven energy optimisation, every Digie product
               carries proprietary technology refined across decades.
             </p>
@@ -342,7 +362,7 @@ function Home() {
               ].map((t) => (
                 <div key={t} className="flex items-start gap-3">
                   <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-                  <span className="text-background/85">{t}</span>
+                  <span className="text-foreground/90">{t}</span>
                 </div>
               ))}
             </div>
@@ -357,12 +377,12 @@ function Home() {
               {stats.map((s) => (
                 <div
                   key={s.label}
-                  className="rounded-3xl border border-background/10 bg-background/5 p-7"
+                  className="rounded-3xl border border-white/10 bg-white/[0.04] p-7 transition-all duration-300 hover:border-primary/40 hover:shadow-glow"
                 >
                   <p className="font-display text-4xl font-bold text-accent">
                     <Counter to={s.value} suffix={s.suffix} />
                   </p>
-                  <p className="mt-2 text-sm text-background/70">{s.label}</p>
+                  <p className="mt-2 text-sm text-muted-foreground">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -380,7 +400,7 @@ function Home() {
             </Button>
           </Link>
         </div>
-        <div className="mt-10 grid grid-cols-4 gap-5">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {bestSellers.map((p, i) => (
             <Reveal key={p.id} delay={i * 0.06}>
               <ProductCard product={p} />

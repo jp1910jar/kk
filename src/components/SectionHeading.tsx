@@ -15,8 +15,12 @@ export function SectionHeading({
     <Reveal>
       <div className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
         {eyebrow && (
-          <span className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-            <span className="h-px w-6 bg-accent" />
+          <span
+            className={`mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent ${
+              align === "center" ? "justify-center" : ""
+            }`}
+          >
+            <span className="h-px w-6 bg-spectrum-gradient" />
             {eyebrow}
           </span>
         )}
